@@ -1,5 +1,5 @@
 class Peliculas {
-  List<Pelicula> items = new List();
+  List<Pelicula> items = [];
   Peliculas();
 
   Peliculas.fromJsonList(List<dynamic> json) {
@@ -59,5 +59,12 @@ class Pelicula {
     video = json['video'];
     voteAverage = json['vote_average'] / 1;
     voteCount = json['vote_count'];
+  }
+
+  getPosterImg() {
+    if (posterPath == null)
+      return 'https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png';
+    else
+      return 'https://image.tmdb.org/t/p/w500/$posterPath';
   }
 }
